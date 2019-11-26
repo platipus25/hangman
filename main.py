@@ -59,14 +59,15 @@ def checkWinLose():
   elif lost():
     print(f"""You lost \nThe word was {word}""") 
   if won() or lost():
-    bet.iterate()
-    bet.showDashboard()
+    bet.defaultGame.iterate()
+    bet.defaultGame.showDashboard()
     word, guessed, guesses, hint, remaining = gen(words)
 
 while True:
   call("clear")
   while True:
     bet.defaultGame.iterate()
+    #iterate()
 
 if False:
   if guessed == word:

@@ -30,10 +30,14 @@ class Game():
     
     # move negative money into debt
     if newBalance < 0:
+      print(f"Newbalance: {newBalance}\nOldbalance: {oldBalance}")
       self.debt += abs(newBalance)
       newBalance = 0
     
     self.balance_ = newBalance
+
+  def log(num):
+    
 
   def dashboard(self):
     betResults = self.betResultsTable.getvalue()
@@ -61,7 +65,8 @@ class Game():
     if bet > self.balance:
       # TODO: implement simple interest
       print(f"You are borrowing {chalk.red(bet - self.balance)}")
-      self.balance = bet - self.balance
+      
+      self.balance = self.balance - bet
 
     if percent > 50:
       #lose
