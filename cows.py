@@ -1,4 +1,4 @@
-# based on sindresorhus/cows
+# based on https://github.com/sindresorhus/cows
 import re
 
 cows = ""

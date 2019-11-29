@@ -30,13 +30,11 @@ class Game():
     
     # move negative money into debt
     if newBalance < 0:
-      print(f"Newbalance: {newBalance}\nOldbalance: {oldBalance}")
+      #print(f"Newbalance: {newBalance}\nOldbalance: {oldBalance}")
       self.debt += abs(newBalance)
       newBalance = 0
     
     self.balance_ = newBalance
-
-  def log(num):
     
 
   def dashboard(self):
