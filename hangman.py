@@ -215,7 +215,7 @@ sequences = {
 # replace indexes with the frames that they represent
 for key in sequences:
   for frame in range(len(sequences[key])):
-    print(sequences[key][frame])
+    #print(sequences[key][frame])
     sequences[key][frame] = \
     hangman[sequences[key][frame]]
 sequences = list(sequences.values()) # its just a dictionary for readability

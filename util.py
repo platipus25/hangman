@@ -27,26 +27,28 @@ def findStr(inArray, needle = ""):
   if len(needle) == 1:
     return findChar(inArray, needle)
   
-  out = []
-  #print(findChar(inArray, needle[0]))
+  out = {}
+  #print(f"Starting points: {findChar(inArray, needle[0])}")
   # use different hypothetical starting points
   for offset in findChar(inArray, needle[0]):
+    out[offset] = []
+    current = out[offset]
+    
     #print(offset)
     # go through the string from the starting point
-    for i in range(offset, len(inArray)):
-      v = inArray[i]
-      #print(i, v, len(needle), i-offset, needle, out)
-      if i-offset >= len(needle):
-        #print("breaking early")
+    for index in range(offset, len(inArray)):
+      letter = inArray[index]
+      needleUnOffsetIndex = index - offset
+      #print(f"Letter in word: {letter}({index})\tCurrent: {current}")
+      if needleUnOffsetIndex >= len(needle):
+        #print(f"Reached the length of the needle ({len(needle)})")
         break
-      if v == needle[i-offset]:
-        out.append(i)
-    # if we found all of them, return
-    if len(out) == len(needle):
-      break
-    else:
-      # otherwise, scrap the hypotheical starting point, and move on to the next one
-      out = []
+      if letter == needle[needleUnOffsetIndex]:
+        current.append(index)
+  #print(out)
+  # flatten
+  values = out.values()
+  out = [item for sublist in values for item in sublist]
   return out
   
 
@@ -55,3 +57,5 @@ def copy(fromStr, toStr, matching = ""):
   for i in findStr(split(fromStr), matching):
     toStr[i] = fromStr[i]
   return join(toStr)
+
+#print(findStr(split("isk isk isksksk"), "isk"))
